@@ -10,6 +10,8 @@
 #
 # See LICENSE for more details.
 
+GET_IP_URL=intangiblehost.net/ip.php
+
 if [ -f ~/.config/dynamicdns ]; then
   source ~/.config/dynamicdns
 fi
@@ -101,7 +103,7 @@ function addRecord {
 
 # Get our current IP address
 
-IP=`wget -O- -q http://software.clempaul.me.uk/ip.php`
+IP=`wget -O- -q $GET_IP_URL`
 if [ $? -ne 0 ]; then
   echo "Failed to get current IP address"
   exit 3
